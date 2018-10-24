@@ -102,23 +102,23 @@ canvas{
 }
 
 #logo {
-  position: relative;
+  position: absolute;
   margin: auto;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 90px;
+  pointer-events: none;
 }
 
 #tagline {
+  position: absolute;
   margin: auto;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 50%;
   text-align: center;
-}
-
-#tagline {
   font-family: 'Montserrat', sans-serif;
   color: #666666;
   font-size: 4vw;
+  pointer-events: none;
 }
 
 .ai {
