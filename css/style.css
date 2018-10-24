@@ -88,17 +88,67 @@ canvas{
   pointer-events: none;
 }
 
-.content .logo {
+.container {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
-  width: 50%;
+  width: 75%;
   min-width: 340px;
+  max-width: 960px;
   pointer-events: none;
 }
+
+#logo {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  margin-top: 30px;
+}
+
+#tagline {
+  margin: auto;
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
+}
+
+#tagline {
+  font-family: 'Montserrat', sans-serif;
+  color: #666666;
+  font-size: 4vw;
+}
+
+.ai {
+  color: #4CBABA;
+}
+
+.human {
+  color: #F47774;
+}
+
+
+/* .content .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 70%;
+  min-width: 340px;
+  max-width: 1024px;
+  pointer-events: none;
+}
+
+.content h1 {
+  font-family: 'Comfortaa', cursive;
+  color: #0090c1;
+  font-size: 3vw;
+} */
+
 
 /* ---- particles.js container ---- */
 
