@@ -255,19 +255,35 @@ canvas {
 
 #links {
   position: absolute;
+  display: flex;
+  justify-content: space-evenly;
   margin: auto;
   width: 100%;
   margin-top: 65%;
-  text-align: center;
   pointer-events: none;
 }
 
-#links img {
+#links .link {
+  width: 25%;
   max-width: 156px;
+  background-color: white;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.5rem;
+  padding: 30px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 #links a {
   pointer-events: all;
+}
+
+#links .link .link-title {
+  text-align: center;
+  color: #5a67d8;
+  font-weight: bold;
+  font-size: 1.125rem;
+  margin-top: 20px;
 }
 
 .ai {
