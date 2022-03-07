@@ -5,8 +5,8 @@ A framework for easily creating beautiful presentations using HTML. [Check out t
 reveal.js comes with a broad range of features including [nested slides](https://github.com/hakimel/reveal.js#markup), [Markdown support](https://github.com/hakimel/reveal.js#markdown), [PDF export](https://github.com/hakimel/reveal.js#pdf-export), [speaker notes](https://github.com/hakimel/reveal.js#speaker-notes) and a [JavaScript API](https://github.com/hakimel/reveal.js#api). There's also a fully featured visual editor and platform for sharing reveal.js presentations at [slides.com](https://slides.com?ref=github).
 
 ### Supporting reveal.js
-This project was started and is maintained by [@hakimel](https://github.com/hakimel/) with the help of many [contributions from the community](https://github.com/hakimel/reveal.js/graphs/contributors). The best way to support the project is to [become a paying member of Slides.com](https://slides.com/pricing)—the reveal.js presentation platform that Hakim is building.
 
+This project was started and is maintained by [@hakimel](https://github.com/hakimel/) with the help of many [contributions from the community](https://github.com/hakimel/reveal.js/graphs/contributors). The best way to support the project is to [become a paying member of Slides.com](https://slides.com/pricing)—the reveal.js presentation platform that Hakim is building.
 
 ## Table of contents
 
@@ -68,11 +68,9 @@ This project was started and is maintained by [@hakimel](https://github.com/haki
 - [Browser Support](https://github.com/hakimel/reveal.js/wiki/Browser-Support): Explanation of browser support and fallbacks.
 - [Plugins](https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware): A list of plugins that can be used to extend reveal.js.
 
-
 ## Online Editor
 
 Presentations are written using HTML or Markdown but there's also an online editor for those of you who prefer a graphical interface. Give it a try at [https://slides.com](https://slides.com?ref=github).
-
 
 ## Installation
 
@@ -93,21 +91,25 @@ Some reveal.js features, like external Markdown and speaker notes, require that 
 1. Install [Node.js](https://nodejs.org/) (9.0.0 or later)
 
 1. Clone the reveal.js repository
+
    ```sh
    $ git clone https://github.com/hakimel/reveal.js.git
    ```
 
 1. Navigate to the reveal.js folder
+
    ```sh
    $ cd reveal.js
    ```
 
 1. Install dependencies
+
    ```sh
    $ npm install
    ```
 
 1. Serve the presentation and monitor source files for changes
+
    ```sh
    $ npm start
    ```
@@ -123,30 +125,30 @@ Some reveal.js features, like external Markdown and speaker notes, require that 
 - **plugin/** Components that have been developed as extensions to reveal.js
 - **lib/** All other third party assets (JavaScript, CSS, fonts)
 
-
 ## Instructions
 
 ### Markup
 
 Here's a barebones example of a fully working reveal.js presentation:
+
 ```html
 <html>
-	<head>
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
-		<script src="js/reveal.js"></script>
-		<script>
-			Reveal.initialize();
-		</script>
-	</body>
+  <head>
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/white.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>Slide 1</section>
+        <section>Slide 2</section>
+      </div>
+    </div>
+    <script src="js/reveal.js"></script>
+    <script>
+      Reveal.initialize();
+    </script>
+  </body>
 </html>
 ```
 
@@ -154,13 +156,13 @@ The presentation markup hierarchy needs to be `.reveal > .slides > section` wher
 
 ```html
 <div class="reveal">
-	<div class="slides">
-		<section>Single Horizontal Slide</section>
-		<section>
-			<section>Vertical Slide 1</section>
-			<section>Vertical Slide 2</section>
-		</section>
-	</div>
+  <div class="slides">
+    <section>Single Horizontal Slide</section>
+    <section>
+      <section>Vertical Slide 1</section>
+      <section>Vertical Slide 2</section>
+    </section>
+  </div>
 </div>
 ```
 
@@ -172,27 +174,30 @@ This is based on [data-markdown](https://gist.github.com/1343518) from [Paul Iri
 
 ```html
 <section data-markdown>
-	<textarea data-template>
+  <textarea data-template>
 		## Page title
 
 		A paragraph with some text and a [link](http://hakim.se).
-	</textarea>
+	</textarea
+  >
 </section>
 ```
 
 #### External Markdown
 
-You can write your content as a separate file and have reveal.js load it at runtime. Note the separator arguments which determine how slides are delimited in the external file: the `data-separator` attribute defines a regular expression for horizontal slides (defaults to `^\r?\n---\r?\n$`, a newline-bounded horizontal rule)  and `data-separator-vertical` defines vertical slides (disabled by default). The `data-separator-notes` attribute is a regular expression for specifying the beginning of the current slide's speaker notes (defaults to `notes?:`, so it will match both "note:" and "notes:"). The `data-charset` attribute is optional and specifies which charset to use when loading the external file.
+You can write your content as a separate file and have reveal.js load it at runtime. Note the separator arguments which determine how slides are delimited in the external file: the `data-separator` attribute defines a regular expression for horizontal slides (defaults to `^\r?\n---\r?\n$`, a newline-bounded horizontal rule) and `data-separator-vertical` defines vertical slides (disabled by default). The `data-separator-notes` attribute is a regular expression for specifying the beginning of the current slide's speaker notes (defaults to `notes?:`, so it will match both "note:" and "notes:"). The `data-charset` attribute is optional and specifies which charset to use when loading the external file.
 
-When used locally, this feature requires that reveal.js [runs from a local web server](#full-setup).  The following example customises all available options:
+When used locally, this feature requires that reveal.js [runs from a local web server](#full-setup). The following example customises all available options:
 
 ```html
-<section data-markdown="example.md"
-         data-separator="^\n\n\n"
-         data-separator-vertical="^\n\n"
-         data-separator-notes="^Note:"
-         data-charset="iso-8859-15">
-    <!--
+<section
+  data-markdown="example.md"
+  data-separator="^\n\n\n"
+  data-separator-vertical="^\n\n"
+  data-separator-notes="^Note:"
+  data-charset="iso-8859-15"
+>
+  <!--
         Note that Windows uses `\r\n` instead of `\n` as its linefeed character.
         For a regex that supports all operating systems, use `\r?\n` instead of `\n`.
     -->
@@ -205,10 +210,10 @@ Special syntax (through HTML comments) is available for adding attributes to Mar
 
 ```html
 <section data-markdown>
-	<script type="text/template">
-		- Item 1 <!-- .element: class="fragment" data-fragment-index="2" -->
-		- Item 2 <!-- .element: class="fragment" data-fragment-index="1" -->
-	</script>
+  <script type="text/template">
+    - Item 1 <!-- .element: class="fragment" data-fragment-index="2" -->
+    - Item 2 <!-- .element: class="fragment" data-fragment-index="1" -->
+  </script>
 </section>
 ```
 
@@ -218,24 +223,24 @@ Special syntax (through HTML comments) is available for adding attributes to the
 
 ```html
 <section data-markdown>
-	<script type="text/template">
-	<!-- .slide: data-background="#ff0000" -->
-		Markdown content
-	</script>
+  <script type="text/template">
+    <!-- .slide: data-background="#ff0000" -->
+    	Markdown content
+  </script>
 </section>
 ```
 
-#### Configuring *marked*
+#### Configuring _marked_
 
 We use [marked](https://github.com/chjj/marked) to parse Markdown. To customise marked's rendering, you can pass in options when [configuring Reveal](#configuration):
 
 ```javascript
 Reveal.initialize({
-	// Options which are passed into marked
-	// See https://marked.js.org/#/USING_ADVANCED.md#options
-	markdown: {
-		smartypants: true
-	}
+  // Options which are passed into marked
+  // See https://marked.js.org/#/USING_ADVANCED.md#options
+  markdown: {
+    smartypants: true,
+  },
 });
 ```
 
@@ -427,22 +432,20 @@ See below for a list of configuration options related to sizing, including defau
 
 ```javascript
 Reveal.initialize({
+  // ...
 
-	// ...
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
 
-	// The "normal" size of the presentation, aspect ratio will be preserved
-	// when the presentation is scaled to fit different resolutions. Can be
-	// specified using percentage units.
-	width: 960,
-	height: 700,
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
 
-	// Factor of the display size that should remain empty around the content
-	margin: 0.1,
-
-	// Bounds for smallest/largest possible scale to apply to content
-	minScale: 0.2,
-	maxScale: 1.5
-
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
 });
 ```
 
@@ -450,14 +453,13 @@ If you wish to disable this behavior and do your own scaling (e.g. using media q
 
 ```javascript
 Reveal.initialize({
+  // ...
 
-	// ...
-
-	width: "100%",
-	height: "100%",
-	margin: 0,
-	minScale: 1,
-	maxScale: 1
+  width: "100%",
+  height: "100%",
+  margin: 0,
+  minScale: 1,
+  maxScale: 1,
 });
 ```
 
@@ -467,27 +469,38 @@ Reveal.js doesn't _rely_ on any third party scripts to work but a few optional l
 
 ```javascript
 Reveal.initialize({
-	dependencies: [
-		// Interpret Markdown in <section> elements
-		{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-		{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  dependencies: [
+    // Interpret Markdown in <section> elements
+    {
+      src: "plugin/markdown/marked.js",
+      condition: function () {
+        return !!document.querySelector("[data-markdown]");
+      },
+    },
+    {
+      src: "plugin/markdown/markdown.js",
+      condition: function () {
+        return !!document.querySelector("[data-markdown]");
+      },
+    },
 
-		// Syntax highlight for <code> elements
-		{ src: 'plugin/highlight/highlight.js', async: true },
+    // Syntax highlight for <code> elements
+    { src: "plugin/highlight/highlight.js", async: true },
 
-		// Zoom in and out with Alt+click
-		{ src: 'plugin/zoom-js/zoom.js', async: true },
+    // Zoom in and out with Alt+click
+    { src: "plugin/zoom-js/zoom.js", async: true },
 
-		// Speaker notes
-		{ src: 'plugin/notes/notes.js', async: true },
+    // Speaker notes
+    { src: "plugin/notes/notes.js", async: true },
 
-		// MathJax
-		{ src: 'plugin/math/math.js', async: true }
-	]
+    // MathJax
+    { src: "plugin/math/math.js", async: true },
+  ],
 });
 ```
 
 You can add your own extensions using the same syntax. The following properties are available for each dependency object:
+
 - **src**: Path to the script to load
 - **async**: [optional] Flags if the script should load after reveal.js has started, defaults to false
 - **callback**: [optional] Function to execute when the script has loaded
@@ -498,9 +511,9 @@ You can add your own extensions using the same syntax. The following properties 
 A `ready` event is fired when reveal.js has loaded all non-async dependencies and is ready to start navigating. To check if reveal.js is already 'ready' you can call `Reveal.isReady()`.
 
 ```javascript
-Reveal.addEventListener( 'ready', function( event ) {
-	// event.currentSlide, event.indexh, event.indexv
-} );
+Reveal.addEventListener("ready", function (event) {
+  // event.currentSlide, event.indexh, event.indexv
+});
 ```
 
 Note that we also add a `.ready` class to the `.reveal` element so that you can hook into this with CSS.
@@ -512,7 +525,7 @@ Presentations can be configured to progress through slides automatically, withou
 ```javascript
 // Slide every five seconds
 Reveal.configure({
-  autoSlide: 5000
+  autoSlide: 5000,
 });
 ```
 
@@ -522,9 +535,13 @@ You can also override the slide duration for individual slides and fragments by 
 
 ```html
 <section data-autoslide="2000">
-	<p>After 2 seconds the first fragment will be shown.</p>
-	<p class="fragment" data-autoslide="10000">After 10 seconds the next fragment will be shown.</p>
-	<p class="fragment">Now, the fragment is displayed for 2 seconds before the next slide is shown.</p>
+  <p>After 2 seconds the first fragment will be shown.</p>
+  <p class="fragment" data-autoslide="10000">
+    After 10 seconds the next fragment will be shown.
+  </p>
+  <p class="fragment">
+    Now, the fragment is displayed for 2 seconds before the next slide is shown.
+  </p>
 </section>
 ```
 
@@ -539,10 +556,10 @@ If you're unhappy with any of the default keyboard bindings you can override the
 ```javascript
 Reveal.configure({
   keyboard: {
-    13: 'next', // go to the next slide when the ENTER key is pressed
-    27: function() {}, // do something custom when ESC is pressed
-    32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)
-  }
+    13: "next", // go to the next slide when the ENTER key is pressed
+    27: function () {}, // do something custom when ESC is pressed
+    32: null, // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)
+  },
 });
 ```
 
@@ -553,13 +570,14 @@ Slides can be nested within other slides to create vertical stacks (see [Markup]
 <img src="https://static.slid.es/support/reveal.js-vertical-slides.gif" width="450">
 
 #### Navigation Mode
+
 You can fine tune the reveal.js navigation behavior by using the `navigationMode` config option. Note that these options are only useful for presentations that use a mix of horizontal and vertical slides. The following navigation modes are available:
 
-| Value                         | Description |
-| :---------------------------  | :---------- |
-| default                       | Left/right arrow keys step between horizontal slides. Up/down arrow keys step between vertical slides. Space key steps through all slides (both horizontal and vertical). |
-| linear                        | Removes the up/down arrows. Left/right arrows step through all slides (both horizontal and vertical). |
-| grid                          | When this is enabled, stepping left/right from a vertical stack to an adjacent vertical stack will land you at the same vertical index.<br><br>Consider a deck with six slides ordered in two vertical stacks:<br>`1.1`&nbsp;&nbsp;&nbsp;&nbsp;`2.1`<br>`1.2`&nbsp;&nbsp;&nbsp;&nbsp;`2.2`<br>`1.3`&nbsp;&nbsp;&nbsp;&nbsp;`2.3`<br><br>If you're on slide 1.3 and navigate right, you will normally move from 1.3 -> 2.1. With navigationMode set to "grid" the same navigation takes you from 1.3 -> 2.3. |
+| Value   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| :------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| default | Left/right arrow keys step between horizontal slides. Up/down arrow keys step between vertical slides. Space key steps through all slides (both horizontal and vertical).                                                                                                                                                                                                                                                                                                                                   |
+| linear  | Removes the up/down arrows. Left/right arrows step through all slides (both horizontal and vertical).                                                                                                                                                                                                                                                                                                                                                                                                       |
+| grid    | When this is enabled, stepping left/right from a vertical stack to an adjacent vertical stack will land you at the same vertical index.<br><br>Consider a deck with six slides ordered in two vertical stacks:<br>`1.1`&nbsp;&nbsp;&nbsp;&nbsp;`2.1`<br>`1.2`&nbsp;&nbsp;&nbsp;&nbsp;`2.2`<br>`1.3`&nbsp;&nbsp;&nbsp;&nbsp;`2.3`<br><br>If you're on slide 1.3 and navigate right, you will normally move from 1.3 -> 2.1. With navigationMode set to "grid" the same navigation takes you from 1.3 -> 2.3. |
 
 ### Touch Navigation
 
@@ -575,7 +593,7 @@ To enable lazy loading all you need to do is change your `src` attributes to `da
 
 ```html
 <section>
-  <img data-src="image.png">
+  <img data-src="image.png" />
   <iframe data-src="http://hakim.se"></iframe>
   <video>
     <source data-src="video.webm" type="video/webm" />
@@ -595,7 +613,7 @@ according to the `viewDistance`.
 
 ```html
 <section>
-	<iframe data-src="http://hakim.se" data-preload></iframe>
+  <iframe data-src="http://hakim.se" data-preload></iframe>
 </section>
 ```
 
@@ -610,7 +628,7 @@ The `Reveal` object exposes a JavaScript API for controlling navigation and read
 
 ```javascript
 // Navigation
-Reveal.slide( indexh, indexv, indexf );
+Reveal.slide(indexh, indexv, indexf);
 Reveal.left();
 Reveal.right();
 Reveal.up();
@@ -645,11 +663,11 @@ Reveal.getScale();
 Reveal.getPreviousSlide();
 Reveal.getCurrentSlide();
 
-Reveal.getIndices();        // { h: 0, v: 0, f: 0 }
+Reveal.getIndices(); // { h: 0, v: 0, f: 0 }
 Reveal.getSlidePastCount();
-Reveal.getProgress();       // (0 == first slide, 1 == last slide)
-Reveal.getSlides();         // Array of all slides
-Reveal.getTotalSlides();    // Total number of slides
+Reveal.getProgress(); // (0 == first slide, 1 == last slide)
+Reveal.getSlides(); // Array of all slides
+Reveal.getTotalSlides(); // Total number of slides
 
 // Returns an array with all horizontal/vertical slides in the deck
 Reveal.getHorizontalSlides();
@@ -676,11 +694,11 @@ Reveal.getRevealElement(); // <div class="reveal">...</div>
 
 ### Custom Key Bindings
 
-Custom key bindings can be added and removed using the following Javascript API. Custom key bindings will override the default keyboard bindings, but will in turn be overridden by the user defined bindings in the ``keyboard`` config option.
+Custom key bindings can be added and removed using the following Javascript API. Custom key bindings will override the default keyboard bindings, but will in turn be overridden by the user defined bindings in the `keyboard` config option.
 
 ```javascript
-Reveal.addKeyBinding( binding, callback );
-Reveal.removeKeyBinding( keyCode );
+Reveal.addKeyBinding(binding, callback);
+Reveal.removeKeyBinding(keyCode);
 ```
 
 For example
@@ -690,20 +708,23 @@ For example
 //      keyCode: the keycode for binding to the callback
 //          key: the key label to show in the help overlay
 //  description: the description of the action to show in the help overlay
-Reveal.addKeyBinding( { keyCode: 84, key: 'T', description: 'Start timer' }, function() {
-	// start timer
-} )
+Reveal.addKeyBinding(
+  { keyCode: 84, key: "T", description: "Start timer" },
+  function () {
+    // start timer
+  }
+);
 
 // The binding parameter can also be a direct keycode without providing the help description
-Reveal.addKeyBinding( 82, function() {
-	// reset timer
-} )
+Reveal.addKeyBinding(82, function () {
+  // reset timer
+});
 ```
 
 This allows plugins to add key bindings directly to Reveal so they can
 
-* make use of Reveal's pre-processing logic for key handling (for example, ignoring key presses when paused); and
-* be included in the help overlay (optional)
+- make use of Reveal's pre-processing logic for key handling (for example, ignoring key presses when paused); and
+- be included in the help overlay (optional)
 
 ### Slide Changed Event
 
@@ -712,9 +733,9 @@ A `slidechanged` event is fired each time the slide is changed (regardless of st
 Some libraries, like MathJax (see [#226](https://github.com/hakimel/reveal.js/issues/226#issuecomment-10261609)), get confused by the transforms and display states of slides. Often times, this can be fixed by calling their update or render function from this callback.
 
 ```javascript
-Reveal.addEventListener( 'slidechanged', function( event ) {
-	// event.previousSlide, event.currentSlide, event.indexh, event.indexv
-} );
+Reveal.addEventListener("slidechanged", function (event) {
+  // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+});
 ```
 
 ### Presentation State
@@ -722,15 +743,15 @@ Reveal.addEventListener( 'slidechanged', function( event ) {
 The presentation's current state can be fetched by using the `getState` method. A state object contains all of the information required to put the presentation back as it was when `getState` was first called. Sort of like a snapshot. It's a simple object that can easily be stringified and persisted or sent over the wire.
 
 ```javascript
-Reveal.slide( 1 );
+Reveal.slide(1);
 // we're on slide 1
 
 var state = Reveal.getState();
 
-Reveal.slide( 3 );
+Reveal.slide(3);
 // we're on slide 3
 
-Reveal.setState( state );
+Reveal.setState(state);
 // we're back on slide 1
 ```
 
@@ -741,9 +762,13 @@ If you set `data-state="somestate"` on a slide `<section>`, "somestate" will be 
 Furthermore you can also listen to these changes in state via JavaScript:
 
 ```javascript
-Reveal.addEventListener( 'somestate', function() {
-	// TODO: Sprinkle magic
-}, false );
+Reveal.addEventListener(
+  "somestate",
+  function () {
+    // TODO: Sprinkle magic
+  },
+  false
+);
 ```
 
 ### Slide Backgrounds
@@ -756,7 +781,7 @@ All CSS color formats are supported, including hex values, keywords, `rgba()` or
 
 ```html
 <section data-background-color="#ff0000">
-	<h2>Color</h2>
+  <h2>Color</h2>
 </section>
 ```
 
@@ -764,20 +789,24 @@ All CSS color formats are supported, including hex values, keywords, `rgba()` or
 
 By default, background images are resized to cover the full page. Available options:
 
-| Attribute                        | Default    | Description |
-| :------------------------------- | :--------- | :---------- |
-| data-background-image            |            | URL of the image to show. GIFs restart when the slide opens. |
-| data-background-size             | cover      | See [background-size](https://developer.mozilla.org/docs/Web/CSS/background-size) on MDN.  |
-| data-background-position         | center     | See [background-position](https://developer.mozilla.org/docs/Web/CSS/background-position) on MDN. |
-| data-background-repeat           | no-repeat  | See [background-repeat](https://developer.mozilla.org/docs/Web/CSS/background-repeat) on MDN. |
-| data-background-opacity          | 1          | Opacity of the background image on a 0-1 scale. 0 is transparent and 1 is fully opaque. |
+| Attribute                | Default   | Description                                                                                       |
+| :----------------------- | :-------- | :------------------------------------------------------------------------------------------------ |
+| data-background-image    |           | URL of the image to show. GIFs restart when the slide opens.                                      |
+| data-background-size     | cover     | See [background-size](https://developer.mozilla.org/docs/Web/CSS/background-size) on MDN.         |
+| data-background-position | center    | See [background-position](https://developer.mozilla.org/docs/Web/CSS/background-position) on MDN. |
+| data-background-repeat   | no-repeat | See [background-repeat](https://developer.mozilla.org/docs/Web/CSS/background-repeat) on MDN.     |
+| data-background-opacity  | 1         | Opacity of the background image on a 0-1 scale. 0 is transparent and 1 is fully opaque.           |
 
 ```html
 <section data-background-image="http://example.com/image.png">
-	<h2>Image</h2>
+  <h2>Image</h2>
 </section>
-<section data-background-image="http://example.com/image.png" data-background-size="100px" data-background-repeat="repeat">
-	<h2>This background image will be sized to 100px and repeated</h2>
+<section
+  data-background-image="http://example.com/image.png"
+  data-background-size="100px"
+  data-background-repeat="repeat"
+>
+  <h2>This background image will be sized to 100px and repeated</h2>
 </section>
 ```
 
@@ -785,17 +814,21 @@ By default, background images are resized to cover the full page. Available opti
 
 Automatically plays a full size video behind the slide.
 
-| Attribute                        | Default | Description |
-| :---------------------------     | :------ | :---------- |
-| data-background-video            |         | A single video source, or a comma separated list of video sources. |
-| data-background-video-loop       | false   | Flags if the video should play repeatedly. |
-| data-background-video-muted      | false   | Flags if the audio should be muted. |
-| data-background-size             | cover   | Use `cover` for full screen and some cropping or `contain` for letterboxing. |
-| data-background-opacity          | 1       | Opacity of the background video on a 0-1 scale. 0 is transparent and 1 is fully opaque. |
+| Attribute                   | Default | Description                                                                             |
+| :-------------------------- | :------ | :-------------------------------------------------------------------------------------- |
+| data-background-video       |         | A single video source, or a comma separated list of video sources.                      |
+| data-background-video-loop  | false   | Flags if the video should play repeatedly.                                              |
+| data-background-video-muted | false   | Flags if the audio should be muted.                                                     |
+| data-background-size        | cover   | Use `cover` for full screen and some cropping or `contain` for letterboxing.            |
+| data-background-opacity     | 1       | Opacity of the background video on a 0-1 scale. 0 is transparent and 1 is fully opaque. |
 
 ```html
-<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-video-loop data-background-video-muted>
-	<h2>Video</h2>
+<section
+  data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm"
+  data-background-video-loop
+  data-background-video-muted
+>
+  <h2>Video</h2>
 </section>
 ```
 
@@ -804,8 +837,11 @@ Automatically plays a full size video behind the slide.
 Embeds a web page as a slide background that covers 100% of the reveal.js width and height. The iframe is in the background layer, behind your slides, and as such it's not possible to interact with it by default. To make your background interactive, you can add the `data-background-interactive` attribute.
 
 ```html
-<section data-background-iframe="https://slides.com" data-background-interactive>
-	<h2>Iframe</h2>
+<section
+  data-background-iframe="https://slides.com"
+  data-background-interactive
+>
+  <h2>Iframe</h2>
 </section>
 ```
 
@@ -815,26 +851,23 @@ Iframes are lazy-loaded when they become visible. If you'd like to preload ifram
 
 Backgrounds transition using a fade animation by default. This can be changed to a linear sliding transition by passing `backgroundTransition: 'slide'` to the `Reveal.initialize()` call. Alternatively you can set `data-background-transition` on any section with a background to override that specific transition.
 
-
 ### Parallax Background
 
 If you want to use a parallax scrolling background, set the first two properties below when initializing reveal.js (the other two are optional).
 
 ```javascript
 Reveal.initialize({
+  // Parallax background image
+  parallaxBackgroundImage: "", // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
 
-	// Parallax background image
-	parallaxBackgroundImage: '', // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
+  // Parallax background size
+  parallaxBackgroundSize: "", // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
 
-	// Parallax background size
-	parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
-
-	// Number of pixels to move the parallax background per slide
-	// - Calculated automatically unless specified
-	// - Set to 0 to disable movement along an axis
-	parallaxBackgroundHorizontal: 200,
-	parallaxBackgroundVertical: 50
-
+  // Number of pixels to move the parallax background per slide
+  // - Calculated automatically unless specified
+  // - Set to 0 to disable movement along an axis
+  parallaxBackgroundHorizontal: 200,
+  parallaxBackgroundVertical: 50,
 });
 ```
 
@@ -846,52 +879,53 @@ The global presentation transition is set using the `transition` config value. Y
 
 ```html
 <section data-transition="zoom">
-	<h2>This slide will override the presentation transition and zoom!</h2>
+  <h2>This slide will override the presentation transition and zoom!</h2>
 </section>
 
 <section data-transition-speed="fast">
-	<h2>Choose from three transition speeds: default, fast or slow!</h2>
+  <h2>Choose from three transition speeds: default, fast or slow!</h2>
 </section>
 ```
 
 You can also use different in and out transitions for the same slide:
 
 ```html
-<section data-transition="slide">
-    The train goes on …
-</section>
-<section data-transition="slide">
-    and on …
-</section>
-<section data-transition="slide-in fade-out">
-    and stops.
-</section>
+<section data-transition="slide">The train goes on …</section>
+<section data-transition="slide">and on …</section>
+<section data-transition="slide-in fade-out">and stops.</section>
 <section data-transition="fade-in slide-out">
-    (Passengers entering and leaving)
+  (Passengers entering and leaving)
 </section>
-<section data-transition="slide">
-    And it starts again.
-</section>
+<section data-transition="slide">And it starts again.</section>
 ```
+
 You can choose from `none`, `fade`, `slide`, `convex`, `concave` and `zoom`.
+
 ### Internal links
 
 It's easy to link between slides. The first example below targets the index of another slide whereas the second targets a slide with an ID attribute (`<section id="some-slide">`):
 
 ```html
-<a href="#/2/2">Link</a>
-<a href="#/some-slide">Link</a>
+<a href="#/2/2">Link</a> <a href="#/some-slide">Link</a>
 ```
 
 You can also add relative navigation links, similar to the built in reveal.js controls, by appending one of the following classes on any element. Note that each element is automatically given an `enabled` class when it's a valid navigation route based on the current slide.
 
 ```html
 <a href="#" class="navigate-left">
-<a href="#" class="navigate-right">
-<a href="#" class="navigate-up">
-<a href="#" class="navigate-down">
-<a href="#" class="navigate-prev"> <!-- Previous vertical or horizontal slide -->
-<a href="#" class="navigate-next"> <!-- Next vertical or horizontal slide -->
+  <a href="#" class="navigate-right">
+    <a href="#" class="navigate-up">
+      <a href="#" class="navigate-down">
+        <a href="#" class="navigate-prev">
+          <!-- Previous vertical or horizontal slide -->
+          <a href="#" class="navigate-next">
+            <!-- Next vertical or horizontal slide --></a
+          ></a
+        ></a
+      ></a
+    ></a
+  ></a
+>
 ```
 
 ### Fragments
@@ -902,16 +936,20 @@ The default fragment style is to start out invisible and fade in. This style can
 
 ```html
 <section>
-	<p class="fragment grow">grow</p>
-	<p class="fragment shrink">shrink</p>
-	<p class="fragment fade-out">fade-out</p>
-	<p class="fragment fade-up">fade-up (also down, left and right!)</p>
-	<p class="fragment fade-in-then-out">fades in, then out when we move to the next step</p>
-	<p class="fragment fade-in-then-semi-out">fades in, then obfuscate when we move to the next step</p>
-	<p class="fragment highlight-current-blue">blue only once</p>
-	<p class="fragment highlight-red">highlight-red</p>
-	<p class="fragment highlight-green">highlight-green</p>
-	<p class="fragment highlight-blue">highlight-blue</p>
+  <p class="fragment grow">grow</p>
+  <p class="fragment shrink">shrink</p>
+  <p class="fragment fade-out">fade-out</p>
+  <p class="fragment fade-up">fade-up (also down, left and right!)</p>
+  <p class="fragment fade-in-then-out">
+    fades in, then out when we move to the next step
+  </p>
+  <p class="fragment fade-in-then-semi-out">
+    fades in, then obfuscate when we move to the next step
+  </p>
+  <p class="fragment highlight-current-blue">blue only once</p>
+  <p class="fragment highlight-red">highlight-red</p>
+  <p class="fragment highlight-green">highlight-green</p>
+  <p class="fragment highlight-blue">highlight-blue</p>
 </section>
 ```
 
@@ -919,9 +957,9 @@ Multiple fragments can be applied to the same element sequentially by wrapping i
 
 ```html
 <section>
-	<span class="fragment fade-in">
-		<span class="fragment fade-out">I'll fade in, then out</span>
-	</span>
+  <span class="fragment fade-in">
+    <span class="fragment fade-out">I'll fade in, then out</span>
+  </span>
 </section>
 ```
 
@@ -929,9 +967,9 @@ The display order of fragments can be controlled using the `data-fragment-index`
 
 ```html
 <section>
-	<p class="fragment" data-fragment-index="3">Appears last</p>
-	<p class="fragment" data-fragment-index="1">Appears first</p>
-	<p class="fragment" data-fragment-index="2">Appears second</p>
+  <p class="fragment" data-fragment-index="3">Appears last</p>
+  <p class="fragment" data-fragment-index="1">Appears first</p>
+  <p class="fragment" data-fragment-index="2">Appears second</p>
 </section>
 ```
 
@@ -942,12 +980,12 @@ When a slide fragment is either shown or hidden reveal.js will dispatch an event
 Some libraries, like MathJax (see #505), get confused by the initially hidden fragment elements. Often times this can be fixed by calling their update or render function from this callback.
 
 ```javascript
-Reveal.addEventListener( 'fragmentshown', function( event ) {
-	// event.fragment = the fragment DOM element
-} );
-Reveal.addEventListener( 'fragmenthidden', function( event ) {
-	// event.fragment = the fragment DOM element
-} );
+Reveal.addEventListener("fragmentshown", function (event) {
+  // event.fragment = the fragment DOM element
+});
+Reveal.addEventListener("fragmenthidden", function (event) {
+  // event.fragment = the fragment DOM element
+});
 ```
 
 ### Code Syntax Highlighting
@@ -956,18 +994,16 @@ By default, Reveal is configured with [highlight.js](https://highlightjs.org/) f
 
 ```javascript
 Reveal.initialize({
-	// More info https://github.com/hakimel/reveal.js#dependencies
-	dependencies: [
-		{ src: 'plugin/highlight/highlight.js', async: true },
-	]
+  // More info https://github.com/hakimel/reveal.js#dependencies
+  dependencies: [{ src: "plugin/highlight/highlight.js", async: true }],
 });
 ```
 
-Below is an example with clojure code that will be syntax highlighted. When the `data-trim` attribute is present, surrounding whitespace is automatically removed.  HTML will be escaped by default. To avoid this, for example if you are using `<mark>` to call out a line of code, add the `data-noescape` attribute to the `<code>` element.
+Below is an example with clojure code that will be syntax highlighted. When the `data-trim` attribute is present, surrounding whitespace is automatically removed. HTML will be escaped by default. To avoid this, for example if you are using `<mark>` to call out a line of code, add the `data-noescape` attribute to the `<code>` element.
 
 ```html
 <section>
-	<pre><code data-trim data-noescape>
+  <pre><code data-trim data-noescape>
 (def lazy-fib
   (concat
    [0 1]
@@ -984,10 +1020,10 @@ To enable line numbers, add `data-line-numbers` to your `<code>` tags. If you wa
 ```html
 <pre><code class="hljs" data-line-numbers="4,8-11">
 import React, { useState } from 'react';
- 
+
 function Example() {
   const [count, setCount] = useState(0);
- 
+
   return (
     <div>
       <p>You clicked {count} times</p>
@@ -1006,8 +1042,6 @@ function Example() {
 
 You can step through multiple code highlights on the same code block. Delimit each of your highlight steps with the `|` character. For example `data-line-numbers="1|2-3|4,6-10"` will produce three steps. It will start by highlighting line 1, next step is lines 2-3, and finally line 4 and 6 through 10.
 
-
-
 ### Slide number
 
 If you would like to display the page number of the current slide you can do so using the `slideNumber` and `showSlideNumber` configuration values.
@@ -1021,19 +1055,21 @@ Reveal.configure({ slideNumber: true });
 //  "h/v": 	horizontal / vertical slide number
 //    "c": 	flattened slide number
 //  "c/t": 	flattened slide number / total slides
-Reveal.configure({ slideNumber: 'c/t' });
+Reveal.configure({ slideNumber: "c/t" });
 
 // You can provide a function to fully customize the number:
-Reveal.configure({ slideNumber: function( slide ) {
+Reveal.configure({
+  slideNumber: function (slide) {
     // Ignore numbering of vertical slides
-    return [ Reveal.getIndices( slide ).h ];
-}});
+    return [Reveal.getIndices(slide).h];
+  },
+});
 
 // Control which views the slide number displays on using the "showSlideNumber" value:
 //     "all": show on all views (default)
 // "speaker": only show slide numbers on speaker notes view
 //   "print": only show slide numbers when printing to PDF
-Reveal.configure({ showSlideNumber: 'speaker' });
+Reveal.configure({ showSlideNumber: "speaker" });
 ```
 
 ### Overview mode
@@ -1042,8 +1078,12 @@ Press »ESC« or »O« keys to toggle the overview mode on and off. While you're
 as if you were at 1,000 feet above your presentation. The overview mode comes with a few API hooks:
 
 ```javascript
-Reveal.addEventListener( 'overviewshown', function( event ) { /* ... */ } );
-Reveal.addEventListener( 'overviewhidden', function( event ) { /* ... */ } );
+Reveal.addEventListener("overviewshown", function (event) {
+  /* ... */
+});
+Reveal.addEventListener("overviewhidden", function (event) {
+  /* ... */
+});
 
 // Toggle the overview mode programmatically
 Reveal.toggleOverview();
@@ -1058,7 +1098,10 @@ Just press »F« on your keyboard to show your presentation in fullscreen mode. 
 Add `data-autoplay` to your media element if you want it to automatically start playing when the slide is shown:
 
 ```html
-<video data-autoplay src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video>
+<video
+  data-autoplay
+  src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+></video>
 ```
 
 If you want to enable or disable autoplay globally, for all embedded media, you can use the `autoPlayMedia` configuration option. If you set this to `true` ALL media will autoplay regardless of individual `data-autoplay` attributes. If you initialize with `autoPlayMedia: false` NO media will autoplay.
@@ -1075,12 +1118,16 @@ Sometimes it's desirable to have an element, like an image or video, stretch to 
 
 ```html
 <section>
-	<h2>This video will use up the remaining space on the slide</h2>
-    <video class="stretch" src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video>
+  <h2>This video will use up the remaining space on the slide</h2>
+  <video
+    class="stretch"
+    src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+  ></video>
 </section>
 ```
 
 Limitations:
+
 - Only direct descendants of a slide section can be stretched
 - Only one descendant per slide section can be stretched
 
@@ -1089,9 +1136,9 @@ Limitations:
 When reveal.js changes the scale of the slides it fires a resize event. You can subscribe to the event to resize your elements accordingly.
 
 ```javascript
-Reveal.addEventListener( 'resize', function( event ) {
-	// event.scale, event.oldScale, event.size
-} );
+Reveal.addEventListener("resize", function (event) {
+  // event.scale, event.oldScale, event.size
+});
 ```
 
 ### postMessage API
@@ -1107,12 +1154,12 @@ The framework has a built-in postMessage API that can be used when communicating
 When reveal.js runs inside of an iframe it can optionally bubble all of its events to the parent. Bubbled events are stringified JSON with three fields: namespace, eventName and state. Here's how you subscribe to them from the parent window:
 
 ```javascript
-window.addEventListener( 'message', function( event ) {
-	var data = JSON.parse( event.data );
-	if( data.namespace === 'reveal' && data.eventName === 'slidechanged' ) {
-		// Slide changed, see data.state for slide number
-	}
-} );
+window.addEventListener("message", function (event) {
+  var data = JSON.parse(event.data);
+  if (data.namespace === "reveal" && data.eventName === "slidechanged") {
+    // Slide changed, see data.state for slide number
+  }
+});
 ```
 
 #### postMessage Callbacks
@@ -1137,16 +1184,15 @@ This cross-window messaging can be toggled on or off using configuration flags. 
 
 ```javascript
 Reveal.initialize({
-	// ...
+  // ...
 
-	// Exposes the reveal.js API through window.postMessage
-	postMessage: true,
+  // Exposes the reveal.js API through window.postMessage
+  postMessage: true,
 
-	// Dispatches all reveal.js events to the parent window through postMessage
-	postMessageEvents: false
+  // Dispatches all reveal.js events to the parent window through postMessage
+  postMessageEvents: false,
 });
 ```
-
 
 ## PDF Export
 
@@ -1154,6 +1200,7 @@ Presentations can be exported to PDF via a special print stylesheet. This featur
 Here's an example of an exported presentation that's been uploaded to SlideShare: http://www.slideshare.net/hakimel/revealjs-300.
 
 ### Separate pages for fragments
+
 [Fragments](#fragments) are printed on separate slides by default. Meaning if you have a slide with three fragment steps, it will generate three separate slides where the fragments appear incrementally.
 
 If you prefer printing all fragments in their visible states on the same slide you can set the `pdfSeparateFragments` config option to false.
@@ -1168,18 +1215,22 @@ To enable the PDF print capability in your presentation, the special print style
 
 ```html
 <script>
-	var link = document.createElement( 'link' );
-	link.rel = 'stylesheet';
-	link.type = 'text/css';
-	link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-	document.getElementsByTagName( 'head' )[0].appendChild( link );
+  var link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.type = "text/css";
+  link.href = window.location.search.match(/print-pdf/gi)
+    ? "css/print/pdf.css"
+    : "css/print/paper.css";
+  document.getElementsByTagName("head")[0].appendChild(link);
 </script>
 ```
 
 ### Instructions
 
 1. Open your presentation with `print-pdf` included in the query string i.e. http://localhost:8000/?print-pdf. You can test this with [revealjs.com?print-pdf](http://revealjs.com?print-pdf).
-  * If you want to include [speaker notes](#speaker-notes) in your export, you can append `showNotes=true` to the query string: http://localhost:8000/?print-pdf&showNotes=true
+
+- If you want to include [speaker notes](#speaker-notes) in your export, you can append `showNotes=true` to the query string: http://localhost:8000/?print-pdf&showNotes=true
+
 1. Open the in-browser print dialog (CTRL/CMD+P).
 1. Change the **Destination** setting to **Save as PDF**.
 1. Change the **Layout** to **Landscape**.
@@ -1190,7 +1241,6 @@ To enable the PDF print capability in your presentation, the special print style
 ![Chrome Print Settings](https://s3.amazonaws.com/hakim-static/reveal-js/pdf-print-settings-2.png)
 
 Alternatively you can use the [decktape](https://github.com/astefanutti/decktape) project.
-
 
 ## Theming
 
@@ -1209,11 +1259,10 @@ The framework comes with a few different themes included:
 Each theme is available as a separate stylesheet. To change theme you will need to replace **black** below with your desired theme name in index.html:
 
 ```html
-<link rel="stylesheet" href="css/theme/black.css" id="theme">
+<link rel="stylesheet" href="css/theme/black.css" id="theme" />
 ```
 
 If you want to add a theme of your own see the instructions here: [/css/theme/README.md](https://github.com/hakimel/reveal.js/blob/master/css/theme/README.md).
-
 
 ## Speaker Notes
 
@@ -1229,26 +1278,28 @@ When used locally, this feature requires that reveal.js [runs from a local web s
 
 ```html
 <section>
-	<h2>Some Slide</h2>
+  <h2>Some Slide</h2>
 
-	<aside class="notes">
-		Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
-	</aside>
+  <aside class="notes">
+    Oh hey, these are some notes. They'll be hidden in your presentation, but
+    you can see them if you open the speaker notes window (hit »S« on your
+    keyboard).
+  </aside>
 </section>
 ```
 
 If you're using the external Markdown plugin, you can add notes with the help of a special delimiter:
 
 ```html
-<section data-markdown="example.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:"></section>
+<section
+  data-markdown="example.md"
+  data-separator="^\n\n\n"
+  data-separator-vertical="^\n\n"
+  data-separator-notes="^Note:"
+></section>
 
-# Title
-## Sub-title
-
-Here is some content...
-
-Note:
-This will only display in the notes window.
+# Title ## Sub-title Here is some content... Note: This will only display in the
+notes window.
 ```
 
 #### Share and Print Speaker Notes
@@ -1261,12 +1312,11 @@ When `showNotes` is enabled notes are also included when you [export to PDF](htt
 
 The speaker notes window will also show:
 
-- Time elapsed since the beginning of the presentation.  If you hover the mouse above this section, a timer reset button will appear.
+- Time elapsed since the beginning of the presentation. If you hover the mouse above this section, a timer reset button will appear.
 - Current wall-clock time
 - (Optionally) a pacing timer which indicates whether the current pace of the presentation is on track for the right timing (shown in green), and if not, whether the presenter should speed up (shown in red) or has the luxury of slowing down (blue).
 
-The pacing timer can be enabled by configuring the `defaultTiming` parameter in the `Reveal` configuration block, which specifies the number of seconds per slide.  120 can be a reasonable rule of thumb.  Alternatively, you can enable the timer by setting `totalTime`, which sets the total length of your presentation (also in seconds).  If both values are specified, `totalTime` wins and `defaultTiming` is ignored.  Regardless of the baseline timing method, timings can also be given per slide `<section>` by setting the `data-timing` attribute (again, in seconds).
-
+The pacing timer can be enabled by configuring the `defaultTiming` parameter in the `Reveal` configuration block, which specifies the number of seconds per slide. 120 can be a reasonable rule of thumb. Alternatively, you can enable the timer by setting `totalTime`, which sets the total length of your presentation (also in seconds). If both values are specified, `totalTime` wins and `defaultTiming` is ignored. Regardless of the baseline timing method, timings can also be given per slide `<section>` by setting the `data-timing` attribute (again, in seconds).
 
 ## Server Side Speaker Notes
 
@@ -1274,12 +1324,12 @@ In some cases it can be desirable to run notes on a separate device from the one
 
 ```javascript
 Reveal.initialize({
-	// ...
+  // ...
 
-	dependencies: [
-		{ src: 'socket.io/socket.io.js', async: true },
-		{ src: 'plugin/notes-server/client.js', async: true }
-	]
+  dependencies: [
+    { src: "socket.io/socket.io.js", async: true },
+    { src: "plugin/notes-server/client.js", async: true },
+  ],
 });
 ```
 
@@ -1289,7 +1339,6 @@ Then:
 2. Run `npm install`
 3. Run `node plugin/notes-server`
 
-
 ## Plugins
 
 Plugins should register themselves with reveal.js by calling `Reveal.registerPlugin( 'myPluginID', MyPlugin )`. Registered plugin instances can optionally expose an "init" function that reveal.js will call to initialize them.
@@ -1298,19 +1347,18 @@ When reveal.js is booted up via `Reveal.initialize()`, it will go through all re
 
 ```javascript
 let MyPlugin = {
-	init: () =>  new Promise( resolve => setTimeout( resolve, 3000 ) )
+  init: () => new Promise((resolve) => setTimeout(resolve, 3000)),
 };
-Reveal.registerPlugin( 'myPlugin', MyPlugin );
-Reveal.addEventListener( 'ready', () => console.log( 'Three seconds later...' ) );
+Reveal.registerPlugin("myPlugin", MyPlugin);
+Reveal.addEventListener("ready", () => console.log("Three seconds later..."));
 Reveal.initialize();
 ```
 
-Note that reveal.js will *not* wait for init Promise fulfillment if the plugin is loaded as an [async dependency](#dependencies). If the plugin's init method does _not_ return a Promise, the plugin is considered ready right away and will not hold up the reveal.js startup sequence.
+Note that reveal.js will _not_ wait for init Promise fulfillment if the plugin is loaded as an [async dependency](#dependencies). If the plugin's init method does _not_ return a Promise, the plugin is considered ready right away and will not hold up the reveal.js startup sequence.
 
 ### Retrieving Plugins
 
 If you want to check if a specific plugin is registered you can use the `Reveal.hasPlugin` method and pass in a plugin ID, for example: `Reveal.hasPlugin( 'myPlugin' )`. If you want to retrieve a plugin instance you can use `Reveal.getPlugin( 'myPlugin' )`.
-
 
 ## Multiplexing
 
@@ -1337,25 +1385,28 @@ Example configuration:
 
 ```javascript
 Reveal.initialize({
-	// other options...
+  // other options...
 
-	multiplex: {
-		// Example values. To generate your own, see the socket.io server instructions.
-		secret: '13652805320794272084', // Obtained from the socket.io server. Gives this (the master) control of the presentation
-		id: '1ea875674b17ca76', // Obtained from socket.io server
-		url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh' // Location of socket.io server
-	},
+  multiplex: {
+    // Example values. To generate your own, see the socket.io server instructions.
+    secret: "13652805320794272084", // Obtained from the socket.io server. Gives this (the master) control of the presentation
+    id: "1ea875674b17ca76", // Obtained from socket.io server
+    url: "https://reveal-js-multiplex-ccjbegmaii.now.sh", // Location of socket.io server
+  },
 
-	// Don't forget to add the dependencies
-	dependencies: [
-		{ src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js', async: true },
-		{ src: 'plugin/multiplex/master.js', async: true },
+  // Don't forget to add the dependencies
+  dependencies: [
+    {
+      src: "//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js",
+      async: true,
+    },
+    { src: "plugin/multiplex/master.js", async: true },
 
-		// and if you want speaker notes
-		{ src: 'plugin/notes-server/client.js', async: true }
+    // and if you want speaker notes
+    { src: "plugin/notes-server/client.js", async: true },
 
-		// other dependencies...
-	]
+    // other dependencies...
+  ],
 });
 ```
 
@@ -1367,22 +1418,25 @@ Example configuration:
 
 ```javascript
 Reveal.initialize({
-	// other options...
+  // other options...
 
-	multiplex: {
-		// Example values. To generate your own, see the socket.io server instructions.
-		secret: null, // null so the clients do not have control of the master presentation
-		id: '1ea875674b17ca76', // id, obtained from socket.io server
-		url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh' // Location of socket.io server
-	},
+  multiplex: {
+    // Example values. To generate your own, see the socket.io server instructions.
+    secret: null, // null so the clients do not have control of the master presentation
+    id: "1ea875674b17ca76", // id, obtained from socket.io server
+    url: "https://reveal-js-multiplex-ccjbegmaii.now.sh", // Location of socket.io server
+  },
 
-	// Don't forget to add the dependencies
-	dependencies: [
-		{ src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js', async: true },
-		{ src: 'plugin/multiplex/client.js', async: true }
+  // Don't forget to add the dependencies
+  dependencies: [
+    {
+      src: "//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js",
+      async: true,
+    },
+    { src: "plugin/multiplex/client.js", async: true },
 
-		// other dependencies...
-	]
+    // other dependencies...
+  ],
 });
 ```
 
@@ -1433,26 +1487,28 @@ Example configuration:
 
 ```javascript
 Reveal.initialize({
-	// other options...
+  // other options...
 
-	multiplex: {
-		// Example values. To generate your own, see the socket.io server instructions.
-		secret: '13652805320794272084', // Obtained from the socket.io server. Gives this (the master) control of the presentation
-		id: '1ea875674b17ca76', // Obtained from socket.io server
-		url: 'example.com:80' // Location of your socket.io server
-	},
+  multiplex: {
+    // Example values. To generate your own, see the socket.io server instructions.
+    secret: "13652805320794272084", // Obtained from the socket.io server. Gives this (the master) control of the presentation
+    id: "1ea875674b17ca76", // Obtained from socket.io server
+    url: "example.com:80", // Location of your socket.io server
+  },
 
-	// Don't forget to add the dependencies
-	dependencies: [
-		{ src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js', async: true },
-		{ src: 'plugin/multiplex/master.js', async: true },
-		{ src: 'plugin/multiplex/client.js', async: true }
+  // Don't forget to add the dependencies
+  dependencies: [
+    {
+      src: "//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js",
+      async: true,
+    },
+    { src: "plugin/multiplex/master.js", async: true },
+    { src: "plugin/multiplex/client.js", async: true },
 
-		// other dependencies...
-	]
+    // other dependencies...
+  ],
 });
 ```
-
 
 ## MathJax
 
@@ -1464,24 +1520,23 @@ Below is an example of how the plugin can be configured. If you don't intend to 
 
 ```js
 Reveal.initialize({
-	// other options ...
+  // other options ...
 
-	math: {
-		mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-		config: 'TeX-AMS_HTML-full', // See http://docs.mathjax.org/en/latest/config-files.html
-		// pass other options into `MathJax.Hub.Config()`
-		TeX: { Macros: { RR: "{\\bf R}" } }
-	},
+  math: {
+    mathjax: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js",
+    config: "TeX-AMS_HTML-full", // See http://docs.mathjax.org/en/latest/config-files.html
+    // pass other options into `MathJax.Hub.Config()`
+    TeX: { Macros: { RR: "{\\bf R}" } },
+  },
 
-	dependencies: [
-		{ src: 'plugin/math/math.js', async: true }
-	]
+  dependencies: [{ src: "plugin/math/math.js", async: true }],
 });
 ```
 
 Read MathJax's documentation if you need [HTTPS delivery](http://docs.mathjax.org/en/latest/start.html#secure-access-to-the-cdn) or serving of [specific versions](http://docs.mathjax.org/en/latest/configuration.html#loading-mathjax-from-the-cdn) for stability.
 
 #### MathJax in Markdown
+
 If you want to include math inside of a presentation written in Markdown you need to wrap the formula in backticks. This prevents syntax conflicts between LaTeX and Markdown. For example:
 
 ```
